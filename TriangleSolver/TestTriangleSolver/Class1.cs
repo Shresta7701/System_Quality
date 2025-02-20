@@ -45,7 +45,42 @@ namespace TestTriangleSolver
                 ClassicAssert.AreEqual("Isosceles triangle", result);
             }
 
+            //Scalene triangle TestCases
 
+            [Test]
+            public void AnalyzeTriangle_ValidScaleneTriangle_AllSidesDifferent1()
+            {
+                string result = Triangle.AnalyzeTriangle(3, 4, 5);
+                ClassicAssert.AreEqual("Scalene triangle", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ValidScaleneTriangle_AllSidesDifferent2()
+            {
+                string result = Triangle.AnalyzeTriangle(5, 7, 10);
+                ClassicAssert.AreEqual("Scalene triangle", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ValidScaleneTriangle_AllSidesDifferent3()
+            {
+                string result = Triangle.AnalyzeTriangle(6, 9, 12);
+                ClassicAssert.AreEqual("Scalene triangle", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ValidScaleneTriangle_AllSidesDifferent4()
+            {
+                string result = Triangle.AnalyzeTriangle(10, 11, 12);
+                ClassicAssert.AreEqual("Scalene triangle", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ValidScaleneTriangle_AllSidesDifferent5()
+            {
+                string result = Triangle.AnalyzeTriangle(15, 17, 19);
+                ClassicAssert.AreEqual("Scalene triangle", result);
+            }
 
 
         }
