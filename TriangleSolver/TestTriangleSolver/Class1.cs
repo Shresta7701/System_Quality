@@ -82,6 +82,50 @@ namespace TestTriangleSolver
                 ClassicAssert.AreEqual("Scalene triangle", result);
             }
 
+            //invalid Testcases
+            [Test]
+            public void AnalyzeTriangle_ZeroSideLength_FirstSideZero()
+            {
+                string result = Triangle.AnalyzeTriangle(0, 5, 7);
+                ClassicAssert.AreEqual("Invalid Triangle - a zero has been detected", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ZeroSideLength_SecondSideZero()
+            {
+                string result = Triangle.AnalyzeTriangle(4, 0, 6);
+                ClassicAssert.AreEqual("Invalid Triangle - a zero has been detected", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_ZeroSideLength_ThirdSideZero()
+            {
+                string result = Triangle.AnalyzeTriangle(9, 8, 0);
+                ClassicAssert.AreEqual("Invalid Triangle - a zero has been detected", result);
+            }
+
+            // 3 Tests for Verifying an Invalid Response (Other Than Zero Length)
+            [Test]
+            public void AnalyzeTriangle_InvalidTriangle_SumOfTwoSidesLessThanThird()
+            {
+                string result = Triangle.AnalyzeTriangle(2, 2, 5);
+                ClassicAssert.AreEqual("INVALID!!", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_InvalidTriangle_NegativeSideLength()
+            {
+                string result = Triangle.AnalyzeTriangle(-3, 4, 5);
+                ClassicAssert.AreEqual("Invalid Triangle - a zero has been detected", result);
+            }
+
+            [Test]
+            public void AnalyzeTriangle_InvalidTriangle_SumOfTwoSidesEqualsThird()
+            {
+                string result = Triangle.AnalyzeTriangle(3, 6, 9);
+                ClassicAssert.AreEqual("INVALID!!", result);
+            }
+
 
         }
     }
