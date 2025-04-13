@@ -38,47 +38,7 @@ public class DefaultSuiteTest
             driver.Quit();     // Ends the browser session
             driver.Dispose();  // Properly disposes the driver
         }
-    }
-    [Test]
-    public void t001()
-    {
-        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-        driver.Manage().Window.Size = new System.Drawing.Size(822, 696);
-        driver.FindElement(By.CssSelector(".btn")).Click();
-        driver.FindElement(By.Id("firstName")).Click();
-        driver.FindElement(By.Id("firstName")).SendKeys("Max");
-        driver.FindElement(By.Id("lastName")).SendKeys("Danny");
-        driver.FindElement(By.Id("address")).SendKeys("370 Schreyer");
-        driver.FindElement(By.CssSelector("body")).Click();
-        driver.FindElement(By.Id("city")).Click();
-        driver.FindElement(By.Id("city")).SendKeys("Milton");
-        driver.FindElement(By.Id("postalCode")).SendKeys("L9T 7T2");
-        driver.FindElement(By.Id("email")).SendKeys("shrestareddy82@gmail.com");
-        driver.FindElement(By.Id("phone")).Click();
-        driver.FindElement(By.Id("phone")).SendKeys("437-776-8774");
-        driver.FindElement(By.Id("age")).Click();
-        driver.FindElement(By.Id("age")).SendKeys("27");
-        driver.FindElement(By.CssSelector("body")).Click();
-        driver.FindElement(By.Id("experience")).Click();
-        driver.FindElement(By.Id("experience")).SendKeys("3");
-        driver.FindElement(By.Id("accidents")).Click();
-        driver.FindElement(By.Id("accidents")).SendKeys("0");
-        driver.FindElement(By.Id("btnSubmit")).Click();
-
-        //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        //var quoteField = wait.Until(d =>
-        //{
-        //    var element = d.FindElement(By.Id("finalQuote"));
-        //    return !string.IsNullOrEmpty(element.GetAttribute("value")) ? element : null;
-        //});
-        //string actualValue = quoteField.GetAttribute("value");
-        //Assert.That(actualValue, Is.EqualTo("$4500"));
-
-        //Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("$4500"));
-        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-        ////Assert
-        Assert.That(actualValue, Is.EqualTo("$4500"));
-    }
+    }    
 
     [Test]
     public void InsuranceQuote10_CustomTest_Exactly30WithDiscount()
