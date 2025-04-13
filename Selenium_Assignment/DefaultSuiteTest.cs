@@ -38,7 +38,28 @@ public class DefaultSuiteTest
             driver.Quit();     // Ends the browser session
             driver.Dispose();  // Properly disposes the driver
         }
-    }    
+    }
+    [Test]
+    public void InsuranceQuote01_MandatoryTest_ValidInput()
+    {
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(822, 696);
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("John");
+        driver.FindElement(By.Id("lastName")).SendKeys("Doe");
+        driver.FindElement(By.Id("address")).SendKeys("123 Main St");
+        driver.FindElement(By.Id("city")).SendKeys("Waterloo");
+        driver.FindElement(By.Id("province")).SendKeys("ON");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N2L 3G1");
+        driver.FindElement(By.Id("email")).SendKeys("test@mail.com");
+        driver.FindElement(By.Id("phone")).SendKeys("123-123-1234");
+        driver.FindElement(By.Id("age")).SendKeys("25");
+        driver.FindElement(By.Id("experience")).SendKeys("3");
+        driver.FindElement(By.Id("accidents")).SendKeys("0");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        string actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$4500"));
+    }
 
     [Test]
     public void InsuranceQuote10_CustomTest_Exactly30WithDiscount()
